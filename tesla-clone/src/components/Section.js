@@ -1,17 +1,17 @@
 import React from 'react'
 import styled from "styled-components"
 
-function Section() {
+function Section({title,description,backgroundImage, leftBtnText, rightBtnText}) {
   return (
-    <Wrap>
+    <Wrap bgImage={ backgroundImage }>
         <ItemText>
-            <h1>Model S</h1>
-            <p>Schedule a Test Drive</p>
+            <h1>{title}</h1>
+            <p>{description}</p>
         </ItemText>
         <Buttons>
             <ButtonGroup>
-                <LeftButton>Custom Order</LeftButton>
-                <RightButton>Existing Inventory</RightButton>
+                <LeftButton>{leftBtnText}</LeftButton>
+                <RightButton>{rightBtnText}</RightButton>
             </ButtonGroup>
             <DownArrow src="/images/down-arrow.svg" />
         </Buttons>
@@ -27,11 +27,11 @@ const Wrap = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url('images/model-s.jpg');
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  background-image: ${props => `url('images/${props.bgImage}')`}
 
 `
 const ItemText = styled.div`
